@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Resa Visualization </title>
+	</head>
+	<body>
+		<p> Welcome to flask application </p>
+		<p>Length of Data is {{ data|length }} </p>
+		<hr />
+		{% for tuple in data %}
+			<h3> {{ loop.index }} </h3>
+			<h4> Component Basic </h4> <p> {{ tuple["ComponentBasic"].__dict__ }}</p>
+			<h4> Component Detail </h4> <p> {{ tuple["ComponentDetail"].__dict__ }}</p>
+			<h4> Receive Queue </h4> <p> {{ tuple["ReceiveQueue"].__dict__ }}</p>
+			<h4> Send Queue </h4> <p> {{ tuple["SendQueue"].__dict__ }}</p>
+			<h4> Execute Data </h4> <p> {{ tuple["Execute"].__dict__ }} </p>
+			<br />
+		{% endfor %}
+
+	</body>
+</html>

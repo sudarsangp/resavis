@@ -1,6 +1,7 @@
 import redis
 from pprint import pprint
 import ast
+from flask import Flask, render_template
 
 class ComponentBasicInfo:
 	component_string = "Component"
@@ -111,55 +112,90 @@ class ExecuteDetail:
 			parse_execute["value"] = execute[key]
 		return parse_execute
 
-r_server = redis.Redis("localhost")
-result_from_server = r_server.lrange("2fwc-1-1410146732-metrics", 0 , -1)
+def connect_to_redis():
+	r_server = redis.Redis("localhost")
+	result_from_server = r_server.lrange("2fwc-1-1410146732-metrics", 0 , -1)
+	return result_from_server
 
 """ write data to file datafromredis which is read from redis server"""
-#file_write = open('datafromredis', 'w')
-#file_write.write(str(result_from_server))
-tuple_objects = []
-tuple_details = {}
-#print len(result_from_server)
-#pprint(result_from_server)
-for i in range(len(result_from_server)):
+def write_redis_data_to_file():
+	file_write = open('datafromredis', 'w')
+	file_write.write(str(result_from_server))
 
-	parse_data = result_from_server[0].split('->')
-	#print parse_data[0], len(parse_data)
-	measure_data = ComponentBasicInfo.parse_component_basic(parse_data[0])
-	component_basic = ComponentBasicInfo(measure_data[0], measure_data[1], measure_data[2])
-	tuple_details["ComponentBasic"] = component_basic
-	#print "Component : %s , Task : %s, TimeStamp : %s" %(measure_data[0], measure_data[1], measure_data[2])
-	#print type(parse_data[1])
-	list_parse_data = ast.literal_eval(parse_data[1])
-	#print type(list_parse_data), list_parse_data
-
-	parse_component_detail = ComponentDetailInfo.parse_component_detail(list_parse_data)
-	component_detail = ComponentDetailInfo(parse_component_detail["duration"], parse_component_detail["send-queue"], parse_component_detail["recv-queue"], parse_component_detail["execute"])
-	#print componentBasic.component
-	tuple_details["ComponentDetail"] = component_detail
-	parse_send_queue = SendQueueDetail.parse_send_queue(component_detail.send_queue)
-	send_queue = SendQueueDetail(parse_send_queue["read_pos"], parse_send_queue["write_pos"], parse_send_queue["capacity"], parse_send_queue["population"])
-	tuple_details["SendQueue"] = send_queue
-
-	parse_recv_queue = RecvQueueDetail.parse_recv_queue(component_detail.recv_queue)
-	recv_queue = RecvQueueDetail(parse_recv_queue["read_pos"], parse_recv_queue["write_pos"], parse_recv_queue["capacity"], parse_recv_queue["population"])
-	tuple_details["ReceiveQueue"] = recv_queue
-
-	parse_execute = ExecuteDetail.parse_execute(component_detail.execute)
-	if parse_execute is not None:
-		execute_values = parse_execute["value"].split(',')
-		execute = ExecuteDetail(parse_execute["stream"], execute_values[0], execute_values[1], execute_values[2])
-		tuple_details["Execute"] = execute
-
-	tuple_objects.append(tuple_details)
+def store_redis_data_in_objects(result_from_server):
+	tuple_objects = []
 	tuple_details = {}
+	#print len(result_from_server)
+	#pprint(result_from_server)
+	for i in range(len(result_from_server)):
 
-print len(tuple_objects), tuple_objects[0]
-""" represents the values stored in member variables"""
-# print component_basic.__dict__
-# print component_detail.__dict__
-# print send_queue.__dict__
-# print recv_queue.__dict__
-# print execute.__dict__
-""" represents the values stored in class variables"""
-#print ExecuteDetail.__dict__
+		parse_data = result_from_server[i].split('->')
+		#print parse_data[0], len(parse_data)
+		measure_data = ComponentBasicInfo.parse_component_basic(parse_data[0])
+		component_basic = ComponentBasicInfo(measure_data[0], measure_data[1], measure_data[2])
+		tuple_details["ComponentBasic"] = component_basic
+		#print "Component : %s , Task : %s, TimeStamp : %s" %(measure_data[0], measure_data[1], measure_data[2])
+		#print type(parse_data[1])
+		list_parse_data = ast.literal_eval(parse_data[1])
+		#print type(list_parse_data), list_parse_data
+
+		parse_component_detail = ComponentDetailInfo.parse_component_detail(list_parse_data)
+		if "execute" in parse_component_detail:
+			component_detail = ComponentDetailInfo(parse_component_detail["duration"], parse_component_detail["send-queue"], parse_component_detail["recv-queue"], parse_component_detail["execute"])
+		else:
+			component_detail = ComponentDetailInfo(parse_component_detail["duration"], parse_component_detail["send-queue"], parse_component_detail["recv-queue"], None)
+		#print componentBasic.component
+		tuple_details["ComponentDetail"] = component_detail
+		parse_send_queue = SendQueueDetail.parse_send_queue(component_detail.send_queue)
+		send_queue = SendQueueDetail(parse_send_queue["read_pos"], parse_send_queue["write_pos"], parse_send_queue["capacity"], parse_send_queue["population"])
+		tuple_details["SendQueue"] = send_queue
+
+		parse_recv_queue = RecvQueueDetail.parse_recv_queue(component_detail.recv_queue)
+		recv_queue = RecvQueueDetail(parse_recv_queue["read_pos"], parse_recv_queue["write_pos"], parse_recv_queue["capacity"], parse_recv_queue["population"])
+		tuple_details["ReceiveQueue"] = recv_queue
+
+		parse_execute = ExecuteDetail.parse_execute(component_detail.execute)
+		if parse_execute is not None:
+			execute_values = parse_execute["value"].split(',')
+			execute = ExecuteDetail(parse_execute["stream"], execute_values[0], execute_values[1], execute_values[2])
+			tuple_details["Execute"] = execute
+		else:
+			tuple_details["Execute"] = None
+
+		tuple_objects.append(tuple_details)
+		tuple_details = {}
+		# measure_data = None
+		# component_basic = None
+		# list_parse_data = None
+		# parse_component_detail = None
+		# component_detail = None
+		# parse_send_queue = None
+		# send_queue = None
+		# parse_recv_queue = None
+		# recv_queue = None
+		# parse_execute = None
+		# execute_values = None
+		# execute = None
+
+	print len(tuple_objects)
+	""" represents the values stored in member variables"""
+	# print component_basic.__dict__
+	# print component_detail.__dict__
+	# print send_queue.__dict__
+	# print recv_queue.__dict__
+	# print execute.__dict__
+	""" represents the values stored in class variables"""
+	#print ExecuteDetail.__dict__
+	return tuple_objects
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+	result = connect_to_redis()
+	data = store_redis_data_in_objects(result)
+	print data[0]["ComponentBasic"].__dict__
+	return render_template("index.html", data = data)
+
+if __name__ == "__main__":
+	app.run(debug = True)
