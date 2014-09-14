@@ -1,0 +1,9 @@
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.054000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 15:41:39] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.042000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 15:42:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.622000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 15:46:43] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading

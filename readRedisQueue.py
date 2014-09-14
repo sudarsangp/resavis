@@ -2,6 +2,8 @@ import redis
 from pprint import pprint
 import ast
 from flask import Flask, render_template
+import logging
+import datetime
 
 class ComponentBasicInfo:
 	component_string = "Component"
@@ -112,9 +114,17 @@ class ExecuteDetail:
 			parse_execute["value"] = execute[key]
 		return parse_execute
 
-def connect_to_redis():
-	r_server = redis.Redis("localhost")
-	result_from_server = r_server.lrange("2fwc-1-1410146732-metrics", 0 , -1)
+def initialize_logger(filename="timediff.log", logger_level = logging.DEBUG):
+	logging.basicConfig(filename = 'log/' + filename, level = logger_level)
+
+def connect_to_redis(host, start_index, stop_index, redis_queue_name):
+	start = datetime.datetime.now()
+	r_server = redis.Redis(host)
+	result_from_server = r_server.lrange(redis_queue_name, start_index , stop_index)
+	end = datetime.datetime.now()
+	time_diff = end - start
+	data_size = len(result_from_server)
+	logging.debug('Time to connect to redis on %s and read data of size %s is %s' %(host, str(data_size), str(time_diff)))
 	return result_from_server
 
 """ write data to file datafromredis which is read from redis server"""
@@ -123,28 +133,23 @@ def write_redis_data_to_file():
 	file_write.write(str(result_from_server))
 
 def store_redis_data_in_objects(result_from_server):
+	start = datetime.datetime.now()
 	tuple_objects = []
 	tuple_details = {}
-	#print len(result_from_server)
-	#pprint(result_from_server)
 	for i in range(len(result_from_server)):
 
 		parse_data = result_from_server[i].split('->')
-		#print parse_data[0], len(parse_data)
 		measure_data = ComponentBasicInfo.parse_component_basic(parse_data[0])
 		component_basic = ComponentBasicInfo(measure_data[0], measure_data[1], measure_data[2])
 		tuple_details["ComponentBasic"] = component_basic
-		#print "Component : %s , Task : %s, TimeStamp : %s" %(measure_data[0], measure_data[1], measure_data[2])
-		#print type(parse_data[1])
 		list_parse_data = ast.literal_eval(parse_data[1])
-		#print type(list_parse_data), list_parse_data
 
 		parse_component_detail = ComponentDetailInfo.parse_component_detail(list_parse_data)
 		if "execute" in parse_component_detail:
 			component_detail = ComponentDetailInfo(parse_component_detail["duration"], parse_component_detail["send-queue"], parse_component_detail["recv-queue"], parse_component_detail["execute"])
 		else:
 			component_detail = ComponentDetailInfo(parse_component_detail["duration"], parse_component_detail["send-queue"], parse_component_detail["recv-queue"], None)
-		#print componentBasic.component
+
 		tuple_details["ComponentDetail"] = component_detail
 		parse_send_queue = SendQueueDetail.parse_send_queue(component_detail.send_queue)
 		send_queue = SendQueueDetail(parse_send_queue["read_pos"], parse_send_queue["write_pos"], parse_send_queue["capacity"], parse_send_queue["population"])
@@ -164,26 +169,15 @@ def store_redis_data_in_objects(result_from_server):
 
 		tuple_objects.append(tuple_details)
 		tuple_details = {}
-		# measure_data = None
-		# component_basic = None
-		# list_parse_data = None
-		# parse_component_detail = None
-		# component_detail = None
-		# parse_send_queue = None
-		# send_queue = None
-		# parse_recv_queue = None
-		# recv_queue = None
-		# parse_execute = None
-		# execute_values = None
-		# execute = None
+
+	end = datetime.datetime.now()
+	time_diff = end - start
+	data_size = len(result_from_server)
+	logging.debug('Time to process data of size %s is %s' %(str(data_size), str(time_diff)))
 
 	print len(tuple_objects)
 	""" represents the values stored in member variables"""
 	# print component_basic.__dict__
-	# print component_detail.__dict__
-	# print send_queue.__dict__
-	# print recv_queue.__dict__
-	# print execute.__dict__
 	""" represents the values stored in class variables"""
 	#print ExecuteDetail.__dict__
 	return tuple_objects
@@ -192,7 +186,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	result = connect_to_redis()
+	initialize_logger()
+	result = connect_to_redis("localhost", 0, -1 , "2fwc-1-1410146732-metrics")
 	data = store_redis_data_in_objects(result)
 	print data[0]["ComponentBasic"].__dict__
 	return render_template("index.html", data = data)
