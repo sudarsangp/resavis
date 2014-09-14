@@ -7,3 +7,124 @@ DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0
 DEBUG:root:Time to process data of size 1509 is 0:00:00.622000
 INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 15:46:43] "GET / HTTP/1.1" 200 -
 INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:27] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:31] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:32] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:32] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:32] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:32] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:33] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:10:33] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:38] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:11:39] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:05] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:23] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:12:24] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:14:44] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:15:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:16:20] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.060000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.474000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:16:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.522000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:33:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.055000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.567000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:37:14] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.527000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:39:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.051000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:40] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:42:41] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.053000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.533000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:43:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.044000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.617000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:45:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.593000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:45:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.051000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:15] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:15] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:16] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:16] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:16] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:16] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.052000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:25] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:26] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.122000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.544000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 22:48:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.044000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.635000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 23:02:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.538000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 23:05:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.070000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.740000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 23:09:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.054000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.657000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 23:24:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.098000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.634000
+INFO:werkzeug:127.0.0.1 - - [14/Sep/2014 23:26:53] "GET / HTTP/1.1" 200 -
