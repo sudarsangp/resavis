@@ -7,6 +7,8 @@ import datetime
 import sys
 from utilities import const
 
+app = Flask(__name__)
+
 """ constants used in the program that can be assigned only once """
 const.KEY_DURATION = "duration"
 const.KEY_SEND_QUEUE = "send-queue"
@@ -39,7 +41,8 @@ const.DEFAULT_FILE_MODE = 'w'
 const.HOST = "localhost"
 const.START_INDEX_FOR_REDIS = 0
 const.END_INDEX_FOR_REDIS = -1
-const.REDIS_QUEUE_NAME = "2fwc-1-1410146732-metrics"
+const.REDIS_QUEUE_NAME = "2fwc-1-1411573576-metrics"
+#old queue id 1410146732
 
 const.HTML_INDEX = "index.html"
 const.HTML_ERROR = "error.html"
@@ -224,18 +227,89 @@ def store_redis_data_in_objects(result_from_server):
 	#print ExecuteDetail.__dict__
 	return tuple_objects
 
-app = Flask(__name__)
+def initial_setup():
+	initialize_logger()
+	global result, data
+	result = connect_to_redis(const.HOST, const.START_INDEX_FOR_REDIS, const.END_INDEX_FOR_REDIS , const.REDIS_QUEUE_NAME)
+	if result is not None:
+		data = store_redis_data_in_objects(result)
+	return result,data
 
 @app.route('/')
 def index():
-	initialize_logger()
-	result = connect_to_redis(const.HOST, const.START_INDEX_FOR_REDIS, const.END_INDEX_FOR_REDIS , const.REDIS_QUEUE_NAME)
+	result, data = initial_setup()
 	if result is None:
 		return render_template(const.HTML_ERROR)
 
-	data = store_redis_data_in_objects(result)
-	print data[0][const.KEY_COMPONENT_BASIC].__dict__
+	#print data[0][const.KEY_COMPONENT_BASIC].__dict__
 	return render_template(const.HTML_INDEX, data = data)
 
+""" TODO: get the name of the spouts and bolts from a different file to avoid hardcoding """
+@app.route('/spoutbolt')
+def spout_details():
+	result, data = initial_setup()
+	if result is None:
+		return render_template(const.HTML_ERROR)
+	
+	spout_data = []
+	bolt_one = []
+	bolt_two = []
+	for i in range(len(data)):
+		if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			spout_data.append(data[i][const.KEY_COMPONENT_BASIC])
+		elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			bolt_one.append(data[i][const.KEY_COMPONENT_BASIC])
+		elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			bolt_two.append(data[i][const.KEY_COMPONENT_BASIC])
+	spout_bolt_data = [spout_data, bolt_one, bolt_two]
+	return render_template("spoutbolt.html", data = spout_bolt_data)
+
+""" TODO: get the name of the spouts and bolts from a different file to avoid hardcoding """
+@app.route('/queuemetrics')
+def queue_metrics():
+	result, data = initial_setup()
+	if result is None:
+		return render_template(const.HTML_ERROR)
+
+	send_queue_spout_population = 0
+	recv_queue_spout_population = 0
+	spout_task_length = 0
+
+	bolt_one_send_queue_population = 0
+	bolt_one_recv_queue_population = 0
+	bolt_one_task_length = 0
+
+	bolt_two_send_queue_population = 0
+	bolt_two_recv_queue_population = 0
+	bolt_two_task_length = 0
+
+
+	for i in range(len(data)):
+		if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			send_queue_spout_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
+			recv_queue_spout_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
+			spout_task_length += 1
+		elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			bolt_two_send_queue_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
+			bolt_one_recv_queue_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
+			bolt_one_task_length += 1
+		elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			bolt_two_send_queue_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
+			bolt_two_recv_queue_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
+			bolt_two_task_length += 1
+
+	spout_queue_metric = [send_queue_spout_population, recv_queue_spout_population, spout_task_length]
+	bolt_one_queue_metric = [bolt_one_send_queue_population, bolt_one_recv_queue_population, bolt_one_task_length]
+	bolt_two_queue_metric = [bolt_two_send_queue_population, bolt_two_recv_queue_population, bolt_two_task_length]
+
+	spout_bolt_metrics = {}
+
+	spout_bolt_metrics["sentenceSpout"] = spout_queue_metric
+	spout_bolt_metrics["split"] = bolt_one_queue_metric
+	spout_bolt_metrics["counter"] = bolt_two_queue_metric
+
+	return render_template("queuemetrics.html", data = spout_bolt_metrics)
+
 if __name__ == "__main__":
+	
 	app.run(debug = True)

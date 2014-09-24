@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Resa Visualization </title>
+	</head>
+	<body>
+		<meta http-equiv="refresh" content="10" />
+		<p> Welcome to flask application </p>
+		<p>Length of Data is {{ data|length }} </p>
+		<hr />
+		<table>
+			<caption> Spout and Bolt Components Queue Metrics </caption>
+			<thead>
+				<th> Index </th>
+				<th> Component Name </th>
+				<th> Send Queue Population </th>
+				<th> Recv Queue Population </th>
+				<th> Component Task Length </th>
+			</thead>
+			<tbody>
+			{% for key, value in data.iteritems() %}
+				
+				<tr>
+					<td>{{ loop.index }} </td>
+					<td> {{ key }} </td>
+					{% for task in value %}
+						<td>{{ task }}</td>
+					{% endfor %}
+				</tr>
+				
+			{% endfor %}
+			</tbody>
+		<table>
+	</body>
+</html>
