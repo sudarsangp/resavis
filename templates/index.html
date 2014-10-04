@@ -1,34 +1,31 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title> Resa Visualization </title>
-	</head>
-	<body>
-		<meta http-equiv="refresh" content="10" />
-		<p> Welcome to flask application </p>
-		<p>Length of Data is {{ data|length }} </p>
-		<hr />
-		<table>
-			<thead>
-				<th> Index </th>
-				<th> Component Basic</th>
-				<th> Component Detail</th>
-				<th> Receive Queue</th>
-				<th> Send Queue</th>
-				<th> Execute Data</th>
-			</thead>
-			<tbody>
-				{% for tuple in data %}
-					<tr>
-						<td>{{ loop.index }}</td>
-						<td>{{ tuple["ComponentBasic"].__dict__ }}</td>
-						<td>{{ tuple["ComponentDetail"].__dict__ }}</td>
-						<td>{{ tuple["ReceiveQueue"].__dict__ }}</td>
-						<td>{{ tuple["SendQueue"].__dict__ }}</td>
-						<td>{{ tuple["Execute"].__dict__ }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}
+	Index
+{% endblock %}
+{% block body %}
+	
+	<p>Length of Data is {{ data|length }} </p>
+	<table class="table table-bordered">
+		<thead>
+			<th> Index </th>
+			<th> Component Basic</th>
+			<th> Component Detail</th>
+			<th> Receive Queue</th>
+			<th> Send Queue</th>
+			<th> Execute Data</th>
+		</thead>
+		<tbody>
+			{% for tuple in data %}
+				<tr>
+					<td>{{ loop.index }}</td>
+					<td>{{ tuple["ComponentBasic"].__dict__ }}</td>
+					<td>{{ tuple["ComponentDetail"].__dict__ }}</td>
+					<td>{{ tuple["ReceiveQueue"].__dict__ }}</td>
+					<td>{{ tuple["SendQueue"].__dict__ }}</td>
+					<td>{{ tuple["Execute"].__dict__ }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

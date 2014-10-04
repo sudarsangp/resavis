@@ -20,10 +20,10 @@ const.KEY_COMPONENT_DETAIL = "ComponentDetail"
 const.KEY_SEND_QUEUE_DETAIL = "SendQueue"
 const.KEY_RECV_QUEUE_DETAIL = "ReceiveQueue"
 
-const.KEY_READ_POS = "read_pos"
-const.KEY_WRITE_POS = "write_pos"
-const.KEY_CAPACITY = "capacity"
-const.KEY_POPULATION = "population"
+const.KEY_SAMPLE_COUNT = "sampleCount"
+const.KEY_TOTAL_QUEUE_LENGTH = "totalQueueLen"
+const.KEY_TOTAL_COUNT = "totalCount"
+const.KEY_COMPLETE_LATENCY = "complete-latency"
 
 const.KEY_STREAM = "stream"
 const.KEY_VALUE = "value"
@@ -41,8 +41,9 @@ const.DEFAULT_FILE_MODE = 'w'
 const.HOST = "localhost"
 const.START_INDEX_FOR_REDIS = 0
 const.END_INDEX_FOR_REDIS = -1
-const.REDIS_QUEUE_NAME = "2fwc-1-1411573576-metrics"
+const.REDIS_QUEUE_NAME = "new-metrics-1-1411619234-metrics"
 #old queue id 1410146732
+# 2fwc-1-1411573576-metrics
 
 const.HTML_INDEX = "index.html"
 const.HTML_ERROR = "error.html"
@@ -83,56 +84,62 @@ class ComponentDetailInfo:
 				parse_component_detail[const.KEY_RECV_QUEUE] = list_parse_data[key]
 			elif str(key) == const.KEY_EXECUTE:
 				parse_component_detail[const.KEY_EXECUTE] = list_parse_data[key]
+			elif str(key) == const.KEY_COMPLETE_LATENCY:
+				parse_component_detail[const.KEY_COMPLETE_LATENCY] = list_parse_data[key]
 		return parse_component_detail
 
 class SendQueueDetail:
-	READ_POSITION = "Read Position"
-	WRITE_POSITION = "Write Position"
-	CAPACITY = "Capacity"
-	POPULATION = "Population"
-	def __init__(self, read_pos, write_pos, capacity, population):
-		self.read_pos = read_pos
-		self.write_pos = write_pos
-		self.capacity = capacity
-		self.population = population
+	SAMPLE_COUNT = "Sample Count"
+	DURATION = "Duration"
+	TOTAL_QUEUE_LENGTH = "Total Queue Length"
+	TOTAL_COUNT = "Total Count"
+	def __init__(self, sample_count, duration, total_queue_length, total_count):
+		self.sample_count = sample_count
+		self.duration = duration
+		self.total_queue_length = total_queue_length
+		self.total_count = total_count
 
 	@staticmethod
 	def parse_send_queue(send_queue):
+		if send_queue is None:
+			return None
 		parse_send_queue = {}
 		for key in send_queue:
-			if str(key) == const.KEY_READ_POS:
-				parse_send_queue[const.KEY_READ_POS] = send_queue[key]
-			elif str(key) == const.KEY_WRITE_POS:
-				parse_send_queue[const.KEY_WRITE_POS] = send_queue[key]
-			elif str(key) == const.KEY_CAPACITY:
-				parse_send_queue[const.KEY_CAPACITY] = send_queue[key]
-			elif str(key) == const.KEY_POPULATION:
-				parse_send_queue[const.KEY_POPULATION] = send_queue[key]
+			if str(key) == const.KEY_SAMPLE_COUNT:
+				parse_send_queue[const.KEY_SAMPLE_COUNT] = send_queue[key]
+			elif str(key) == const.KEY_DURATION:
+				parse_send_queue[const.KEY_DURATION] = send_queue[key]
+			elif str(key) == const.KEY_TOTAL_QUEUE_LENGTH:
+				parse_send_queue[const.KEY_TOTAL_QUEUE_LENGTH] = send_queue[key]
+			elif str(key) == const.KEY_TOTAL_COUNT:
+				parse_send_queue[const.KEY_TOTAL_COUNT] = send_queue[key]
 		return parse_send_queue
 
 class RecvQueueDetail:
-	READ_POSITION = "Read Position"
-	WRITE_POSITION = "Write Position"
-	CAPACITY = "Capacity"
-	POPULATION = "Population"
-	def __init__(self, read_pos, write_pos, capacity, population):
-		self.read_pos = read_pos
-		self.write_pos = write_pos
-		self.capacity = capacity
-		self.population = population
+	SAMPLE_COUNT = "Sample Count"
+	DURATION = "Duration"
+	TOTAL_QUEUE_LENGTH = "Total Queue Length"
+	TOTAL_COUNT = "Total Count"
+	def __init__(self, sample_count, duration, total_queue_length, total_count):
+		self.sample_count = sample_count
+		self.duration = duration
+		self.total_queue_length = total_queue_length
+		self.total_count = total_count
 
 	@staticmethod
 	def parse_recv_queue(recv_queue):
+		if recv_queue is None:
+			return None
 		parse_recv_queue = {}
 		for key in recv_queue:
-			if str(key) == const.KEY_READ_POS:
-				parse_recv_queue[const.KEY_READ_POS] = recv_queue[key]
-			elif str(key) == const.KEY_WRITE_POS:
-				parse_recv_queue[const.KEY_WRITE_POS] = recv_queue[key]
-			elif str(key) == const.KEY_CAPACITY:
-				parse_recv_queue[const.KEY_CAPACITY] = recv_queue[key]
-			elif str(key) == const.KEY_POPULATION:
-				parse_recv_queue[const.KEY_POPULATION] = recv_queue[key]
+			if str(key) == const.KEY_SAMPLE_COUNT:
+				parse_recv_queue[const.KEY_SAMPLE_COUNT] = recv_queue[key]
+			elif str(key) == const.KEY_DURATION:
+				parse_recv_queue[const.KEY_DURATION] = recv_queue[key]
+			elif str(key) == const.KEY_TOTAL_QUEUE_LENGTH:
+				parse_recv_queue[const.KEY_TOTAL_QUEUE_LENGTH] = recv_queue[key]
+			elif str(key) == const.KEY_TOTAL_COUNT:
+				parse_recv_queue[const.KEY_TOTAL_COUNT] = recv_queue[key]
 		return parse_recv_queue
 
 class ExecuteDetail:
@@ -177,12 +184,31 @@ def write_redis_data_to_file(filename = const.DEFAULT_WRITE_FILENAME, file_mode 
 	file_write = open(filename, file_mode)
 	file_write.write(str(result_from_server))
 
+def get_component_details_values_for_keys(parse_component_detail):
+	duration_component_details = None
+	send_queue_component_details = None
+	recv_queue_component_details = None
+	execute_component_details = None
+	
+	if const.KEY_DURATION in parse_component_detail:
+		duration_component_details = parse_component_detail[const.KEY_DURATION]
+	if const.KEY_SEND_QUEUE in parse_component_detail:
+		send_queue_component_details = parse_component_detail[const.KEY_SEND_QUEUE]
+	if const.KEY_RECV_QUEUE in parse_component_detail:
+		recv_queue_component_details = parse_component_detail[const.KEY_RECV_QUEUE]
+	if const.KEY_EXECUTE in parse_component_detail:
+		execute_component_details = parse_component_detail[const.KEY_EXECUTE]
+	elif const.KEY_COMPLETE_LATENCY in parse_component_detail:
+		execute_component_details = parse_component_detail[const.KEY_COMPLETE_LATENCY]
+
+	return duration_component_details, send_queue_component_details, recv_queue_component_details, execute_component_details
+
 def store_redis_data_in_objects(result_from_server):
 	start = datetime.datetime.now()
 	tuple_objects = []
 	tuple_details = {}
 	for i in range(len(result_from_server)):
-
+		
 		parse_data = result_from_server[i].split(const.HIPHEN_GREATHERTHAN)
 		measure_data = ComponentBasicInfo.parse_component_basic(parse_data[0])
 		component_basic = ComponentBasicInfo(measure_data[0], measure_data[1], measure_data[2])
@@ -190,19 +216,23 @@ def store_redis_data_in_objects(result_from_server):
 		list_parse_data = ast.literal_eval(parse_data[1])
 
 		parse_component_detail = ComponentDetailInfo.parse_component_detail(list_parse_data)
-		if const.KEY_EXECUTE in parse_component_detail:
-			component_detail = ComponentDetailInfo(parse_component_detail[const.KEY_DURATION], parse_component_detail[const.KEY_SEND_QUEUE], parse_component_detail[const.KEY_RECV_QUEUE], parse_component_detail["execute"])
-		else:
-			component_detail = ComponentDetailInfo(parse_component_detail[const.KEY_DURATION], parse_component_detail[const.KEY_SEND_QUEUE], parse_component_detail[const.KEY_RECV_QUEUE], None)
-
+		duration_component_details, send_queue_component_details, recv_queue_component_details, execute_component_details = get_component_details_values_for_keys(parse_component_detail)
+		component_detail = ComponentDetailInfo(duration_component_details, send_queue_component_details, recv_queue_component_details, execute_component_details)
+		
 		tuple_details[const.KEY_COMPONENT_DETAIL] = component_detail
 		parse_send_queue = SendQueueDetail.parse_send_queue(component_detail.send_queue)
-		send_queue = SendQueueDetail(parse_send_queue[const.KEY_READ_POS], parse_send_queue[const.KEY_WRITE_POS], parse_send_queue[const.KEY_CAPACITY], parse_send_queue[const.KEY_POPULATION])
-		tuple_details[const.KEY_SEND_QUEUE_DETAIL] = send_queue
+		if parse_send_queue is not None:
+			send_queue = SendQueueDetail(parse_send_queue[const.KEY_SAMPLE_COUNT], parse_send_queue[const.KEY_DURATION], parse_send_queue[const.KEY_TOTAL_QUEUE_LENGTH], parse_send_queue[const.KEY_TOTAL_COUNT])
+			tuple_details[const.KEY_SEND_QUEUE_DETAIL] = send_queue
+		else:
+			tuple_details[const.KEY_SEND_QUEUE_DETAIL] = None
 
 		parse_recv_queue = RecvQueueDetail.parse_recv_queue(component_detail.recv_queue)
-		recv_queue = RecvQueueDetail(parse_recv_queue[const.KEY_READ_POS], parse_recv_queue[const.KEY_WRITE_POS], parse_recv_queue[const.KEY_CAPACITY], parse_recv_queue[const.KEY_POPULATION])
-		tuple_details[const.KEY_RECV_QUEUE_DETAIL] = recv_queue
+		if parse_recv_queue is not None:
+			recv_queue = RecvQueueDetail(parse_recv_queue[const.KEY_SAMPLE_COUNT], parse_recv_queue[const.KEY_DURATION], parse_recv_queue[const.KEY_TOTAL_QUEUE_LENGTH], parse_recv_queue[const.KEY_TOTAL_COUNT])
+			tuple_details[const.KEY_RECV_QUEUE_DETAIL] = recv_queue
+		else:
+			tuple_details[const.KEY_RECV_QUEUE_DETAIL] = None
 
 		parse_execute = ExecuteDetail.parse_execute(component_detail.execute)
 		if parse_execute is not None:
@@ -271,44 +301,24 @@ def queue_metrics():
 	if result is None:
 		return render_template(const.HTML_ERROR)
 
-	send_queue_spout_population = 0
-	recv_queue_spout_population = 0
-	spout_task_length = 0
-
-	bolt_one_send_queue_population = 0
-	bolt_one_recv_queue_population = 0
-	bolt_one_task_length = 0
-
-	bolt_two_send_queue_population = 0
-	bolt_two_recv_queue_population = 0
-	bolt_two_task_length = 0
-
-
+	avg_execution_time = 0
+	avg_sum_squares = 0
+	variance = 0
+	component_metrics = []
+	metrics_list = []
 	for i in range(len(data)):
-		if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
-			send_queue_spout_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
-			recv_queue_spout_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
-			spout_task_length += 1
-		elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
-			bolt_two_send_queue_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
-			bolt_one_recv_queue_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
-			bolt_one_task_length += 1
-		elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
-			bolt_two_send_queue_population += int(data[i][const.KEY_SEND_QUEUE_DETAIL].population)
-			bolt_two_recv_queue_population += int(data[i][const.KEY_RECV_QUEUE_DETAIL].population)
-			bolt_two_task_length += 1
+		
+		task_metric = data[i][ComponentDetailInfo.EXECUTE]
+		if task_metric is None:
+			continue
+		avg_execution_time = float(task_metric.sum_value) / float(task_metric.count)
+		avg_sum_squares = float(task_metric.sum_squares) / float(task_metric.count)
+		variance = avg_sum_squares - (avg_execution_time * avg_execution_time)
+		component_name = str(data[i][const.KEY_COMPONENT_BASIC].component)
+		component_metrics = [component_name, avg_execution_time, avg_sum_squares, variance]
+		metrics_list.append(component_metrics)
 
-	spout_queue_metric = [send_queue_spout_population, recv_queue_spout_population, spout_task_length]
-	bolt_one_queue_metric = [bolt_one_send_queue_population, bolt_one_recv_queue_population, bolt_one_task_length]
-	bolt_two_queue_metric = [bolt_two_send_queue_population, bolt_two_recv_queue_population, bolt_two_task_length]
-
-	spout_bolt_metrics = {}
-
-	spout_bolt_metrics["sentenceSpout"] = spout_queue_metric
-	spout_bolt_metrics["split"] = bolt_one_queue_metric
-	spout_bolt_metrics["counter"] = bolt_two_queue_metric
-
-	return render_template("queuemetrics.html", data = spout_bolt_metrics)
+	return render_template("queuemetrics.html", data = metrics_list)
 
 if __name__ == "__main__":
 	
