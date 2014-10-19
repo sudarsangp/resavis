@@ -859,3 +859,602 @@ INFO:werkzeug:127.0.0.1 - - [04/Oct/2014 16:04:00] "GET /queuemetrics HTTP/1.1" 
 DEBUG:root:Time to connect to redis on localhost and read data of size 7287 is 0:00:01.216000
 DEBUG:root:Time to process data of size 7287 is 0:00:02.522000
 INFO:werkzeug:127.0.0.1 - - [04/Oct/2014 16:04:06] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 8204 is 0:00:01.306000
+DEBUG:root:Time to process data of size 8204 is 0:00:02.552000
+INFO:werkzeug:127.0.0.1 - - [10/Oct/2014 16:36:41] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Oct/2014 16:37:02] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 8204 is 0:00:01.203000
+DEBUG:root:Time to process data of size 8204 is 0:00:02.485000
+INFO:werkzeug:127.0.0.1 - - [10/Oct/2014 16:37:27] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 8204 is 0:00:01.202000
+DEBUG:root:Time to process data of size 8204 is 0:00:02.634000
+INFO:werkzeug:127.0.0.1 - - [10/Oct/2014 16:37:47] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 8204 is 0:00:03.217000
+DEBUG:root:Time to process data of size 8204 is 0:00:08.475000
+INFO:werkzeug:127.0.0.1 - - [10/Oct/2014 17:26:02] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.008000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:03:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:03:32] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.021000
+DEBUG:root:Time to process data of size 504 is 0:00:00.145000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:07:38] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.018000
+DEBUG:root:Time to process data of size 504 is 0:00:00.138000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:07:50] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.015000
+DEBUG:root:Time to process data of size 504 is 0:00:00.138000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:07:54] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.018000
+DEBUG:root:Time to process data of size 504 is 0:00:00.151000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:08:04] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.016000
+DEBUG:root:Time to process data of size 504 is 0:00:00.136000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:08:27] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.019000
+DEBUG:root:Time to process data of size 504 is 0:00:00.135000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:08:34] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.016000
+DEBUG:root:Time to process data of size 504 is 0:00:00.133000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:08:53] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:08:55] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.016000
+DEBUG:root:Time to process data of size 504 is 0:00:00.136000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:09:26] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.010000
+DEBUG:root:Time to process data of size 504 is 0:00:00.067000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:10:13] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 504 is 0:00:01.033000
+DEBUG:root:Time to process data of size 504 is 0:00:00.200000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:10:18] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 42 is 0:00:01.011000
+DEBUG:root:Time to process data of size 42 is 0:00:00.012000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:20:57] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:20:58] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 42 is 0:00:01.005000
+DEBUG:root:Time to process data of size 42 is 0:00:00.013000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:21:05] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.005000
+DEBUG:root:Time to process data of size 63 is 0:00:00.018000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:21:09] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.002000
+DEBUG:root:Time to process data of size 63 is 0:00:00.017000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:21:14] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 126 is 0:00:01.007000
+DEBUG:root:Time to process data of size 126 is 0:00:00.034000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:25:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:25:02] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 147 is 0:00:01.009000
+DEBUG:root:Time to process data of size 147 is 0:00:00.040000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:25:08] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.012000
+DEBUG:root:Time to process data of size 21 is 0:00:00.341000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:49:00] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.007000
+DEBUG:root:Time to process data of size 21 is 0:00:00.019000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:49:04] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.005000
+DEBUG:root:Time to process data of size 21 is 0:00:00.008000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:49:09] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 42 is 0:00:00.996000
+DEBUG:root:Time to process data of size 42 is 0:00:00.014000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:49:48] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 42 is 0:00:01.008000
+DEBUG:root:Time to process data of size 42 is 0:00:00.015000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:49:56] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 189 is 0:00:01.113000
+DEBUG:root:Time to process data of size 189 is 0:00:00.058000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:57:15] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.006000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:57:21] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.004000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:57:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 18 is 0:00:01.014000
+DEBUG:root:Time to process data of size 18 is 0:00:00.015000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:57:41] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.013000
+DEBUG:root:Time to process data of size 21 is 0:00:00.008000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:58:12] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.004000
+DEBUG:root:Time to process data of size 21 is 0:00:00.010000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:58:35] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 21 is 0:00:01.007000
+DEBUG:root:Time to process data of size 21 is 0:00:00.006000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:58:38] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 40 is 0:00:01.007000
+DEBUG:root:Time to process data of size 40 is 0:00:00.012000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:58:43] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 42 is 0:00:01.004000
+DEBUG:root:Time to process data of size 42 is 0:00:00.013000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 19:58:48] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.010000
+DEBUG:root:Time to process data of size 84 is 0:00:00.026000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:01:19] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.011000
+DEBUG:root:Time to process data of size 84 is 0:00:00.025000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:01:22] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.015000
+DEBUG:root:Time to process data of size 84 is 0:00:00.024000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:01:26] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 189 is 0:00:01.008000
+DEBUG:root:Time to process data of size 189 is 0:00:00.059000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:06:32] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 189 is 0:00:01.019000
+DEBUG:root:Time to process data of size 189 is 0:00:00.059000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:06:35] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 207 is 0:00:01.007000
+DEBUG:root:Time to process data of size 207 is 0:00:00.060000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:06:40] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.013000
+DEBUG:root:Time to process data of size 210 is 0:00:00.062000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:00] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.010000
+DEBUG:root:Time to process data of size 210 is 0:00:00.063000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:03] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.007000
+DEBUG:root:Time to process data of size 210 is 0:00:00.062000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:06] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.011000
+DEBUG:root:Time to process data of size 210 is 0:00:00.067000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:08] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.011000
+DEBUG:root:Time to process data of size 210 is 0:00:00.111000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:13] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 210 is 0:00:01.010000
+DEBUG:root:Time to process data of size 210 is 0:00:00.064000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:16] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.004000
+DEBUG:root:Time to process data of size 231 is 0:00:00.073000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:07:49] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.017000
+DEBUG:root:Time to process data of size 231 is 0:00:00.043000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:08:20] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.004000
+DEBUG:root:Time to process data of size 231 is 0:00:00.067000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:08:23] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:08:25] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.010000
+DEBUG:root:Time to process data of size 231 is 0:00:00.064000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:08:31] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 987 is 0:00:01.183000
+DEBUG:root:Time to process data of size 987 is 0:00:00.752000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:44:26] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1029 is 0:00:01.029000
+DEBUG:root:Time to process data of size 1029 is 0:00:00.316000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:45:46] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1029 is 0:00:01.031000
+DEBUG:root:Time to process data of size 1029 is 0:00:01.138000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:46:33] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1045 is 0:00:01.030000
+DEBUG:root:Time to process data of size 1045 is 0:00:00.315000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:46:40] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1176 is 0:00:01.052000
+DEBUG:root:Time to process data of size 1176 is 0:00:00.386000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:53:15] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1197 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1197 is 0:00:00.397000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:53:47] "GET /queuemetrics HTTP/1.1" 500 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1197 is 0:00:01.038000
+DEBUG:root:Time to process data of size 1197 is 0:00:00.463000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:53:49] "GET /queuemetrics HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:53:57] "GET /queuemetrics?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 20:53:57] "GET /queuemetrics?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1363 is 0:00:01.048000
+DEBUG:root:Time to process data of size 1363 is 0:00:00.463000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:01:46] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1365 is 0:00:01.035000
+DEBUG:root:Time to process data of size 1365 is 0:00:00.471000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:01:53] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1383 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1383 is 0:00:00.505000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:02:43] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1386 is 0:00:01.041000
+DEBUG:root:Time to process data of size 1386 is 0:00:00.455000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:02:59] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1386 is 0:00:01.047000
+DEBUG:root:Time to process data of size 1386 is 0:00:00.401000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:03:13] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1407 is 0:00:01.054000
+DEBUG:root:Time to process data of size 1407 is 0:00:00.472000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:03:50] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1491 is 0:00:01.095000
+DEBUG:root:Time to process data of size 1491 is 0:00:00.444000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:08:40] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1509 is 0:00:01.056000
+DEBUG:root:Time to process data of size 1509 is 0:00:00.640000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:08:43] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1512 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1512 is 0:00:00.483000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:08:45] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1533 is 0:00:01.075000
+DEBUG:root:Time to process data of size 1533 is 0:00:00.622000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:21] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1533 is 0:00:01.048000
+DEBUG:root:Time to process data of size 1533 is 0:00:00.466000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:31] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1533 is 0:00:01.036000
+DEBUG:root:Time to process data of size 1533 is 0:00:00.512000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:39] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1551 is 0:00:01.080000
+DEBUG:root:Time to process data of size 1551 is 0:00:00.671000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:43] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.043000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.484000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:46] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.055000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.484000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:52] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.589000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:10:57] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.041000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.580000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:11:17] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.058000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.564000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:11:23] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1575 is 0:00:01.044000
+DEBUG:root:Time to process data of size 1575 is 0:00:00.605000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:11:47] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1575 is 0:00:01.047000
+DEBUG:root:Time to process data of size 1575 is 0:00:00.448000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:12:16] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1575 is 0:00:01.045000
+DEBUG:root:Time to process data of size 1575 is 0:00:00.471000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:12:34] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1953 is 0:00:01.053000
+DEBUG:root:Time to process data of size 1953 is 0:00:00.690000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:29:51] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2013 is 0:00:01.056000
+DEBUG:root:Time to process data of size 2013 is 0:00:00.614000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:32:42] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.048000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.649000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:32:47] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.083000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.718000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:32:59] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.062000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.690000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:09] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.074000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.766000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:13] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:15] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.072000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.633000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:22] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2016 is 0:00:01.061000
+DEBUG:root:Time to process data of size 2016 is 0:00:00.688000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:26] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:33:28] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2058 is 0:00:01.119000
+DEBUG:root:Time to process data of size 2058 is 0:00:00.780000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:34:45] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2058 is 0:00:01.097000
+DEBUG:root:Time to process data of size 2058 is 0:00:00.737000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:34:54] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2058 is 0:00:01.071000
+DEBUG:root:Time to process data of size 2058 is 0:00:00.741000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:35:00] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2289 is 0:00:01.075000
+DEBUG:root:Time to process data of size 2289 is 0:00:00.792000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:46:00] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.137000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.896000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:48:53] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.071000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.970000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:13] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.063000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.820000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:17] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.062000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.684000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:20] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:20] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.074000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.925000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:30] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2352 is 0:00:01.062000
+DEBUG:root:Time to process data of size 2352 is 0:00:00.809000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:49:34] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2373 is 0:00:01.068000
+DEBUG:root:Time to process data of size 2373 is 0:00:00.784000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:50:03] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2373 is 0:00:01.122000
+DEBUG:root:Time to process data of size 2373 is 0:00:00.823000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:50:09] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2394 is 0:00:01.062000
+DEBUG:root:Time to process data of size 2394 is 0:00:00.790000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:50:49] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2394 is 0:00:01.070000
+DEBUG:root:Time to process data of size 2394 is 0:00:00.756000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:50:56] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2394 is 0:00:01.065000
+DEBUG:root:Time to process data of size 2394 is 0:00:00.903000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:51:00] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:51:02] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2394 is 0:00:01.068000
+DEBUG:root:Time to process data of size 2394 is 0:00:00.820000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:51:12] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 2394 is 0:00:01.060000
+DEBUG:root:Time to process data of size 2394 is 0:00:00.800000
+INFO:werkzeug:127.0.0.1 - - [15/Oct/2014 21:51:17] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.011000
+DEBUG:root:Time to process data of size 63 is 0:00:00.050000
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:49:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:49:47] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.004000
+DEBUG:root:Time to process data of size 63 is 0:00:00.026000
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:49:58] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.007000
+DEBUG:root:Time to process data of size 84 is 0:00:00.027000
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:50:05] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.008000
+DEBUG:root:Time to process data of size 84 is 0:00:00.036000
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:50:23] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.005000
+DEBUG:root:Time to process data of size 84 is 0:00:00.026000
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2014 07:50:27] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.027000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:45:31] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.008000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:45:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:45:33] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:00.999000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:45:42] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.006000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:46:25] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.004000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:46:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:46:32] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 0 is 0:00:01.013000
+DEBUG:root:Time to process data of size 0 is 0:00:00
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:47:05] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.007000
+DEBUG:root:Time to process data of size 63 is 0:00:00.034000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:47:39] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.009000
+DEBUG:root:Time to process data of size 63 is 0:00:00.036000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:47:56] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:01.006000
+DEBUG:root:Time to process data of size 63 is 0:00:00.020000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:00] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 63 is 0:00:00.999000
+DEBUG:root:Time to process data of size 63 is 0:00:00.022000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:19] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:21] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:21] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:21] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:21] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:21] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:22] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:22] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 84 is 0:00:01.017000
+DEBUG:root:Time to process data of size 84 is 0:00:00.028000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:48:47] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 105 is 0:00:01.020000
+DEBUG:root:Time to process data of size 105 is 0:00:00.035000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:49:22] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 105 is 0:00:01.008000
+DEBUG:root:Time to process data of size 105 is 0:00:00.035000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:49:59] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 105 is 0:00:01.009000
+DEBUG:root:Time to process data of size 105 is 0:00:00.034000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:50:10] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 126 is 0:00:01.005000
+DEBUG:root:Time to process data of size 126 is 0:00:00.097000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:50:43] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 126 is 0:00:01.006000
+DEBUG:root:Time to process data of size 126 is 0:00:00.044000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:51:15] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 147 is 0:00:01.014000
+DEBUG:root:Time to process data of size 147 is 0:00:00.046000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:51:40] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 147 is 0:00:01.020000
+DEBUG:root:Time to process data of size 147 is 0:00:00.085000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:52:01] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 189 is 0:00:01.023000
+DEBUG:root:Time to process data of size 189 is 0:00:00.060000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:53:24] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.016000
+DEBUG:root:Time to process data of size 231 is 0:00:00.079000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:55:57] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 231 is 0:00:01.001000
+DEBUG:root:Time to process data of size 231 is 0:00:00.068000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:56:02] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:56:02] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 252 is 0:00:01.015000
+DEBUG:root:Time to process data of size 252 is 0:00:00.095000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:56:32] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 252 is 0:00:01.015000
+DEBUG:root:Time to process data of size 252 is 0:00:00.077000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:57:00] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:57:00] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 252 is 0:00:01.012000
+DEBUG:root:Time to process data of size 252 is 0:00:00.080000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:57:21] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 315 is 0:00:01.019000
+DEBUG:root:Time to process data of size 315 is 0:00:00.113000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 14:59:47] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 336 is 0:00:01.021000
+DEBUG:root:Time to process data of size 336 is 0:00:00.100000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:01:11] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 336 is 0:00:01.012000
+DEBUG:root:Time to process data of size 336 is 0:00:00.101000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:01:15] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 336 is 0:00:01.017000
+DEBUG:root:Time to process data of size 336 is 0:00:00.100000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:01:17] "GET /spoutbolt HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 399 is 0:00:01.036000
+DEBUG:root:Time to process data of size 399 is 0:00:00.120000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:04:12] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 399 is 0:00:01.007000
+DEBUG:root:Time to process data of size 399 is 0:00:00.214000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:04:14] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 420 is 0:00:01.013000
+DEBUG:root:Time to process data of size 420 is 0:00:00.126000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:04:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 441 is 0:00:01.020000
+DEBUG:root:Time to process data of size 441 is 0:00:00.130000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:05:42] "GET / HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 441 is 0:00:01.016000
+DEBUG:root:Time to process data of size 441 is 0:00:00.131000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:05:47] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 573 is 0:00:01.022000
+DEBUG:root:Time to process data of size 573 is 0:00:00.180000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:12:22] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 588 is 0:00:01.025000
+DEBUG:root:Time to process data of size 588 is 0:00:00.178000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:12:53] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 735 is 0:00:01.032000
+DEBUG:root:Time to process data of size 735 is 0:00:00.336000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:55] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:19:56] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 777 is 0:00:01.022000
+DEBUG:root:Time to process data of size 777 is 0:00:00.235000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:21:40] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 777 is 0:00:01.030000
+DEBUG:root:Time to process data of size 777 is 0:00:00.315000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:21:48] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 840 is 0:00:01.025000
+DEBUG:root:Time to process data of size 840 is 0:00:00.255000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:25:08] "GET /spoutbolt HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 840 is 0:00:01.025000
+DEBUG:root:Time to process data of size 840 is 0:00:00.274000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:25:12] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 945 is 0:00:01.027000
+DEBUG:root:Time to process data of size 945 is 0:00:00.270000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:29:26] "GET /queuemetrics HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 987 is 0:00:01.035000
+DEBUG:root:Time to process data of size 987 is 0:00:00.393000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:02] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:03] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:03] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:03] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:03] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:04] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:32:04] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1134 is 0:00:01.043000
+DEBUG:root:Time to process data of size 1134 is 0:00:00.450000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:04] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:39:05] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1176 is 0:00:01.049000
+DEBUG:root:Time to process data of size 1176 is 0:00:00.477000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:32] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:40:33] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1197 is 0:00:01.037000
+DEBUG:root:Time to process data of size 1197 is 0:00:00.365000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:41:37] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1260 is 0:00:01.037000
+DEBUG:root:Time to process data of size 1260 is 0:00:00.390000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:57] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:44:58] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1302 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1302 is 0:00:00.381000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:46:33] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1386 is 0:00:01.043000
+DEBUG:root:Time to process data of size 1386 is 0:00:00.435000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:50:24] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1470 is 0:00:01.046000
+DEBUG:root:Time to process data of size 1470 is 0:00:00.427000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:54:42] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1554 is 0:00:01.055000
+DEBUG:root:Time to process data of size 1554 is 0:00:00.538000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:14] "GET /compoenetlevel HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:15] "GET /compoenetlevel?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1575 is 0:00:01.061000
+DEBUG:root:Time to process data of size 1575 is 0:00:00.545000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 15:59:48] "GET /compoenetlevel HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'readRedisQueue.py', reloading
+DEBUG:root:Time to connect to redis on localhost and read data of size 1680 is 0:00:01.057000
+DEBUG:root:Time to process data of size 1680 is 0:00:00.585000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 16:05:11] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1701 is 0:00:01.050000
+DEBUG:root:Time to process data of size 1701 is 0:00:00.582000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 16:05:29] "GET /compoenetlevel HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1701 is 0:00:01.044000
+DEBUG:root:Time to process data of size 1701 is 0:00:00.506000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 16:05:51] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1701 is 0:00:01.043000
+DEBUG:root:Time to process data of size 1701 is 0:00:00.480000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 16:06:01] "GET /queuemetrics HTTP/1.1" 200 -
+DEBUG:root:Time to connect to redis on localhost and read data of size 1701 is 0:00:01.043000
+DEBUG:root:Time to process data of size 1701 is 0:00:00.575000
+INFO:werkzeug:127.0.0.1 - - [19/Oct/2014 16:06:04] "GET /compoenetlevel HTTP/1.1" 200 -

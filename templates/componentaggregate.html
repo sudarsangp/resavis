@@ -6,24 +6,22 @@
 	<p>Length of Data is {{ data|length }} </p>
 	<hr />
 	<table class="table table-bordered">
-		<caption> Spout and Bolt Components Queue Metrics </caption>
+		<caption> Component Aggregation </caption>
 		<thead>
-			<th> Index </th>
-			<th> Component Name </th>
-			<th> Task Id </th>
+			<th> Component Task </th>
+			<th> Timestamp </th>
 			<th> Average Execution </th>
 			<th> Average Sum of Squares </th>
 			<th> Variance </th>
 		</thead>
 		<tbody>
-		{% for task in data %}
+		{% for key, value in data.iteritems() %}
 		<tr>
-			<td>{{ loop.index }} </td>
-			{% for metrics in task %}
-				
-				<td>{{ metrics }}</td>
-				
-			{% endfor %}
+			<td> {{  key }} </td>
+			<td> {{ value }} </td>
+			<td> {{ avg_execution_time[loop.index0] }} </td>
+			<td> {{ avg_sum_squares[loop.index0] }} </td>
+			<td> {{ variance[loop.index0] }} </td>
 		</tr>
 		{% endfor %}
 		</tbody>

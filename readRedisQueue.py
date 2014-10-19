@@ -41,7 +41,7 @@ const.DEFAULT_FILE_MODE = 'w'
 const.HOST = "localhost"
 const.START_INDEX_FOR_REDIS = 0
 const.END_INDEX_FOR_REDIS = -1
-const.REDIS_QUEUE_NAME = "new-metrics-1-1411619234-metrics"
+const.REDIS_QUEUE_NAME = "19-oct-1-1413701017-metrics"
 #old queue id 1410146732
 # 2fwc-1-1411573576-metrics
 
@@ -307,7 +307,6 @@ def queue_metrics():
 	component_metrics = []
 	metrics_list = []
 	for i in range(len(data)):
-		
 		task_metric = data[i][ComponentDetailInfo.EXECUTE]
 		if task_metric is None:
 			continue
@@ -315,10 +314,308 @@ def queue_metrics():
 		avg_sum_squares = float(task_metric.sum_squares) / float(task_metric.count)
 		variance = avg_sum_squares - (avg_execution_time * avg_execution_time)
 		component_name = str(data[i][const.KEY_COMPONENT_BASIC].component)
-		component_metrics = [component_name, avg_execution_time, avg_sum_squares, variance]
+		task_id = str(data[i][const.KEY_COMPONENT_BASIC].task)
+		component_metrics = [component_name, task_id, avg_execution_time, avg_sum_squares, variance]
 		metrics_list.append(component_metrics)
 
 	return render_template("queuemetrics.html", data = metrics_list)
+
+@app.route('/compoenetlevel')
+def compoenent_level():
+	result, data = initial_setup()
+	if result is None:
+		return render_template(const.HTML_ERROR)
+
+	timestamp_values_3 = []
+	timestamp_values_4 = []
+	timestamp_values_5 = []
+	timestamp_values_6 = []
+	timestamp_values_7 = []
+	timestamp_values_8 = []
+	timestamp_values_9 = []
+	timestamp_values_10 = []
+	timestamp_values_11 = []
+	timestamp_values_12 = []
+	timestamp_values_13 = []
+	timestamp_values_14 = []
+	timestamp_values_15 = []
+	timestamp_values_16 = []
+	timestamp_values_17 = []
+	timestamp_values_18 = []
+	timestamp_values_19 = []
+	timestamp_values_20 = []
+	timestamp_values_21 = []
+	timestamp_values_22 = []
+	timestamp_values_23 = []
+
+	timestamp_dict = {}
+
+	sum_array = []
+	sum_sq_array = []
+	count_array = []
+	avg_execution_time = []
+	avg_sum_squares = []
+	variance = []
+	for i in range(21):
+		sum_array.append(0)
+		sum_sq_array.append(0)
+		count_array.append(0)
+		avg_execution_time.append(0)
+		avg_sum_squares.append(0)
+		variance.append(0)
+
+	for i in range(len(data)):
+		# executing is becoming none for most tuples but need that for average calculation
+		# task_metric = data[i][ComponentDetailInfo.EXECUTE]
+		# if task_metric is None:
+		# 	continue
+
+		if(int(data[i][const.KEY_COMPONENT_BASIC].task) == 3):
+			timestamp_values_3.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_3
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[0] += float(task_metric.sum_value)
+			sum_sq_array[0] += float(task_metric.sum_squares)
+			count_array[0] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 4):
+			timestamp_values_4.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_4
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[1] += float(task_metric.sum_value)
+			sum_sq_array[1] += float(task_metric.sum_squares)
+			count_array[1] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 5):
+			timestamp_values_5.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_5
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[2] += float(task_metric.sum_value)
+			sum_sq_array[2] += float(task_metric.sum_squares)
+			count_array[2] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 6):
+			timestamp_values_6.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_6
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[3] += float(task_metric.sum_value)
+			sum_sq_array[3] += float(task_metric.sum_squares)
+			count_array[3] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 7):
+			timestamp_values_7.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_7
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[4] += float(task_metric.sum_value)
+			sum_sq_array[4] += float(task_metric.sum_squares)
+			count_array[4] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 8):
+			timestamp_values_8.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_8
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[5] += float(task_metric.sum_value)
+			sum_sq_array[5] += float(task_metric.sum_squares)
+			count_array[5] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 9):
+			timestamp_values_9.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_9
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[6] += float(task_metric.sum_value)
+			sum_sq_array[6] += float(task_metric.sum_squares)
+			count_array[6] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 10):
+			timestamp_values_10.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_10
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[7] += float(task_metric.sum_value)
+			sum_sq_array[7] += float(task_metric.sum_squares)
+			count_array[7] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 11):
+			timestamp_values_11.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_11
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[8] += float(task_metric.sum_value)
+			sum_sq_array[8] += float(task_metric.sum_squares)
+			count_array[8] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 12):
+			timestamp_values_12.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_12
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[9] += float(task_metric.sum_value)
+			sum_sq_array[9] += float(task_metric.sum_squares)
+			count_array[9] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 13):
+			timestamp_values_13.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_13
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[10] += float(task_metric.sum_value)
+			sum_sq_array[10] += float(task_metric.sum_squares)
+			count_array[10] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 14):
+			timestamp_values_14.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_14
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[11] += float(task_metric.sum_value)
+			sum_sq_array[11] += float(task_metric.sum_squares)
+			count_array[11] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 15):
+			timestamp_values_15.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_15
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[12] += float(task_metric.sum_value)
+			sum_sq_array[12] += float(task_metric.sum_squares)
+			count_array[12] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 16):
+			timestamp_values_16.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_16
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[13] += float(task_metric.sum_value)
+			sum_sq_array[13] += float(task_metric.sum_squares)
+			count_array[13] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 17):
+			timestamp_values_17.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_17
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[14] += float(task_metric.sum_value)
+			sum_sq_array[14] += float(task_metric.sum_squares)
+			count_array[14] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 18):
+			timestamp_values_18.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_18
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[15] += float(task_metric.sum_value)
+			sum_sq_array[15] += float(task_metric.sum_squares)
+			count_array[15] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 19):
+			timestamp_values_19.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_19
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[16] += float(task_metric.sum_value)
+			sum_sq_array[16] += float(task_metric.sum_squares)
+			count_array[16] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 20):
+			timestamp_values_20.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_20
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[17] += float(task_metric.sum_value)
+			sum_sq_array[17] += float(task_metric.sum_squares)
+			count_array[17] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 21):
+			timestamp_values_21.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_21
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[18] += float(task_metric.sum_value)
+			sum_sq_array[18] += float(task_metric.sum_squares)
+			count_array[18] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 22):
+			timestamp_values_22.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_22
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[19] += float(task_metric.sum_value)
+			sum_sq_array[19] += float(task_metric.sum_squares)
+			count_array[19] += float(task_metric.count)
+
+		elif(int(data[i][const.KEY_COMPONENT_BASIC].task) == 23):
+			timestamp_values_23.append(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+			component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+			timestamp_dict[component_task_key] = timestamp_values_23
+			task_metric = data[i][ComponentDetailInfo.EXECUTE]
+			if task_metric is None:
+			 	continue
+			sum_array[20] += float(task_metric.sum_value)
+			sum_sq_array[20] += float(task_metric.sum_squares)
+			count_array[20] += float(task_metric.count)
+
+	
+	for i in range(21):
+		if(count_array[i]!=0):
+			avg_execution_time[i] = sum_array[i] / count_array[i]
+			avg_sum_squares[i] = sum_sq_array[i] / count_array[i]
+			variance[i] = avg_sum_squares[i] - (avg_execution_time[i] * avg_execution_time[i])
+
+	print avg_execution_time
+	print avg_sum_squares
+	print variance
+		# component_task_key = data[i][const.KEY_COMPONENT_BASIC].component + str(data[i][const.KEY_COMPONENT_BASIC].task)
+		# timestamp_key = str(data[i][const.KEY_COMPONENT_BASIC].task) + '-' + str(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+		# timestamp_values.push(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+		# timestamp_dict[timestamp_key] = timestamp_values
+	return render_template("componentaggregate.html", data = timestamp_dict, avg_execution_time = avg_execution_time, avg_sum_squares = avg_sum_squares, variance = variance)
 
 if __name__ == "__main__":
 	
