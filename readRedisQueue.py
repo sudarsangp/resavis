@@ -617,6 +617,108 @@ def compoenent_level():
 		# timestamp_dict[timestamp_key] = timestamp_values
 	return render_template("componentaggregate.html", data = timestamp_dict, avg_execution_time = avg_execution_time, avg_sum_squares = avg_sum_squares, variance = variance)
 
+@app.route('/executorlevel')
+def executor_level():
+	result, data = initial_setup()
+	if result is None:
+		return render_template(const.HTML_ERROR)
+
+	split_executors = []
+	combine_tasks_split = []
+	sum_duration_split = 0
+
+	counter_executors = []
+	combine_tasks_counter = []
+	sum_duration_counter = 0
+
+	for i in range(len(data)):
+		if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			pass
+
+		elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			sum_duration_split += data[i][const.KEY_SEND_QUEUE_DETAIL].duration
+			if sum_duration_split < 70000:
+				combine_tasks_split.append(data[i][const.KEY_SEND_QUEUE_DETAIL])
+			else:
+				split_executors.append(combine_tasks_split)
+				combine_tasks_split = []
+				sum_duration_split = 0
+
+		elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			sum_duration_counter += data[i][const.KEY_SEND_QUEUE_DETAIL].duration
+			if sum_duration_counter < 70000:
+				combine_tasks_counter.append(data[i][const.KEY_SEND_QUEUE_DETAIL])
+			else:
+				counter_executors.append(combine_tasks_counter)
+				combine_tasks_counter = []
+				sum_duration_counter = 0
+
+	print len(split_executors), len(counter_executors)
+
+	sum_duration = 0
+	sum_total_count = 0
+	avg_rate = 0.0
+
+	sum_total_queue_length = 0
+	sum_sample_count = 0
+	avg_queue_length = 0
+
+	split_avg_rates = []
+	split_avg_queue_length = []
+
+	for i in range(len(split_executors)):
+		split_avg_rates.append(0)
+		split_avg_queue_length.append(0)
+	
+	for i in range(len(split_executors)):
+		
+		for j in range(len(split_executors[i])):
+			sum_duration+=split_executors[i][j].duration
+			sum_total_count+=split_executors[i][j].total_count
+			sum_total_queue_length += split_executors[i][j].total_queue_length
+			sum_sample_count += split_executors[i][j].sample_count
+		
+		if sum_duration > 0:
+			avg_rate = float(sum_total_count)/float(sum_duration)
+			split_avg_rates[i] = avg_rate
+		if sum_sample_count > 0:
+			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
+			split_avg_queue_length[i] = avg_queue_length
+
+	sum_duration = 0
+	sum_total_count = 0
+	avg_rate = 0.0
+
+	sum_total_queue_length = 0
+	sum_sample_count = 0
+	avg_queue_length = 0
+
+	counter_avg_rates = []
+	counter_avg_queue_length = []
+
+	for i in range(len(counter_executors)):
+		counter_avg_rates.append(0)
+		counter_avg_queue_length.append(0)
+	
+	for i in range(len(counter_executors)):
+		
+		for j in range(len(counter_executors[i])):
+			sum_duration+=counter_executors[i][j].duration
+			sum_total_count+=counter_executors[i][j].total_count
+			sum_total_queue_length += counter_executors[i][j].total_queue_length
+			sum_sample_count += counter_executors[i][j].sample_count
+		
+		if sum_duration > 0:
+			avg_rate = float(sum_total_count)/ float(sum_duration)
+			counter_avg_rates[i] = avg_rate
+		if sum_sample_count > 0:
+			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
+			counter_avg_queue_length[i] = avg_queue_length
+
+	split_details = [split_avg_rates, split_avg_queue_length]
+	counter_details = [counter_avg_rates, counter_avg_queue_length]
+
+	return render_template("executoraggregate.html", split_details = split_details, counter_details = counter_details)
 if __name__ == "__main__":
 	
 	app.run(debug = True)
