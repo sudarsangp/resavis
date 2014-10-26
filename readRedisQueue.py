@@ -6,6 +6,7 @@ import logging
 import datetime
 import sys
 from utilities import const
+from collections import OrderedDict
 
 app = Flask(__name__)
 
@@ -41,7 +42,7 @@ const.DEFAULT_FILE_MODE = 'w'
 const.HOST = "localhost"
 const.START_INDEX_FOR_REDIS = 0
 const.END_INDEX_FOR_REDIS = -1
-const.REDIS_QUEUE_NAME = "19-oct-1-1413701017-metrics"
+const.REDIS_QUEUE_NAME = "26-oct-1-1414296590-metrics"
 #old queue id 1410146732
 # 2fwc-1-1411573576-metrics
 
@@ -171,6 +172,7 @@ def connect_to_redis(host, start_index, stop_index, redis_queue_name):
 		start = datetime.datetime.now()
 		r_server = redis.Redis(host)
 		result_from_server = r_server.lrange(redis_queue_name, start_index , stop_index)
+		#r_server.delete(redis_queue_name)
 		end = datetime.datetime.now()
 		time_diff = end - start
 		data_size = len(result_from_server)
@@ -265,6 +267,14 @@ def initial_setup():
 		data = store_redis_data_in_objects(result)
 	return result,data
 
+def get_executor_from_redis():
+	redis_server = redis.Redis(const.HOST)
+	all_keys = redis_server.hkeys('executor')
+	executor_dict = {}
+	for key in all_keys:
+		executor_dict[key] = redis_server.hget('executor', key)
+	return executor_dict
+
 @app.route('/')
 def index():
 	result, data = initial_setup()
@@ -315,7 +325,8 @@ def queue_metrics():
 		variance = avg_sum_squares - (avg_execution_time * avg_execution_time)
 		component_name = str(data[i][const.KEY_COMPONENT_BASIC].component)
 		task_id = str(data[i][const.KEY_COMPONENT_BASIC].task)
-		component_metrics = [component_name, task_id, avg_execution_time, avg_sum_squares, variance]
+		time_stamp = str(data[i][const.KEY_COMPONENT_BASIC].time_stamp)
+		component_metrics = [component_name, task_id, avg_execution_time, avg_sum_squares, variance, time_stamp]
 		metrics_list.append(component_metrics)
 
 	return render_template("queuemetrics.html", data = metrics_list)
@@ -719,6 +730,154 @@ def executor_level():
 	counter_details = [counter_avg_rates, counter_avg_queue_length]
 
 	return render_template("executoraggregate.html", split_details = split_details, counter_details = counter_details)
+
+@app.route('/taskcomponent')
+def task_component():
+	result, data = initial_setup()
+	if result is None:
+		return render_template(const.HTML_ERROR)
+	
+	executor_dict = get_executor_from_redis()
+	sentence_spout_send_queue = []
+	dict_sentence_spout = {}
+
+	split_1_recv_queue = []
+	dict_split_1 = {}
+	split_2_recv_queue = []
+	dict_split_2 = {}
+	split_3_recv_queue = []
+	dict_split_3 = {}
+	split_4_recv_queue = []
+	dict_split_4 = {}
+
+	counter_1_recv_queue = []
+	dict_counter_1 = {}
+	counter_2_recv_queue = []
+	dict_counter_2 = {}
+
+	for i in range(len(data)):
+		time_value = data[i][const.KEY_COMPONENT_BASIC].time_stamp
+		task_id = data[i][const.KEY_COMPONENT_BASIC].task
+		for executor_name in executor_dict:
+			if task_id in executor_dict[executor_name]:
+				
+				if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+					sentence_spout_send_queue.append(data[i][const.KEY_SEND_QUEUE_DETAIL])
+					dict_sentence_spout[time_value] = sentence_spout_send_queue
+					sentence_spout_send_queue = []
+				
+				elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+					if executor_name == 'splitBolt1':
+						if time_value not in dict_split_1:
+							split_1_recv_queue = []
+						split_1_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_split_1[time_value] = split_1_recv_queue
+					if executor_name == 'splitBolt2':
+						if time_value not in dict_split_2:
+							split_2_recv_queue = []
+						split_2_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_split_2[time_value] = split_2_recv_queue
+					if executor_name == 'splitBolt3':
+						if time_value not in dict_split_3:
+							split_3_recv_queue = []
+						split_3_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_split_3[time_value] = split_3_recv_queue
+					if executor_name == 'splitBolt4':
+						if time_value not in dict_split_4:
+							split_4_recv_queue = []
+						split_4_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_split_4[time_value] = split_4_recv_queue
+
+				elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+					if executor_name == 'counterBolt1':
+						if time_value not in dict_counter_1:
+							counter_1_recv_queue = []
+						counter_1_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_counter_1[time_value] = counter_1_recv_queue
+					if executor_name == 'counterBolt2':
+						if time_value not in dict_counter_2:
+							counter_1_recv_queue = []
+						counter_2_recv_queue.append(data[i][const.KEY_RECV_QUEUE_DETAIL])
+						dict_counter_2[time_value] = counter_2_recv_queue
+
+	print len(dict_sentence_spout), len(dict_split_1), len(dict_split_2), len(dict_split_3), len(dict_split_4), len(dict_counter_1), len(dict_counter_2)
+
+	sum_duration = 0
+	sum_total_count = 0
+	avg_rate = 0.0
+
+	sum_total_queue_length = 0
+	sum_sample_count = 0
+	avg_queue_length = 0
+
+	spout_avg_rates = {}
+	spout_avg_queue_length = {}
+
+	split_1_avg_rates = {}
+	split_2_avg_rates = {}
+	split_3_avg_rates = {}
+	split_4_avg_rates = {}
+
+	counter_1_avg_rates = {}
+	counter_2_avg_rates = {}
+
+	split_1_avg_queue_length = {}
+	split_2_avg_queue_length = {}
+	split_3_avg_queue_length = {}
+	split_4_avg_queue_length = {}
+
+	counter_1_avg_queue_length = {}
+	counter_2_avg_queue_length = {}
+
+	list_executors = [dict_sentence_spout, dict_split_1, dict_split_2, dict_split_3, dict_split_4, dict_counter_1, dict_counter_2]
+	list_avg_rates = [spout_avg_rates, split_1_avg_rates, split_2_avg_rates, split_3_avg_rates, split_4_avg_rates, counter_1_avg_rates, counter_2_avg_rates]
+	list_avg_queue_length = [spout_avg_queue_length, split_1_avg_queue_length, split_2_avg_queue_length, split_3_avg_queue_length, split_4_avg_queue_length, counter_1_avg_queue_length, counter_2_avg_queue_length]
+
+	for i in range(len(list_executors)):	
+		for key_timestamp,value in list_executors[i].iteritems():
+			for send_queue in value:
+				if send_queue == None:
+					continue
+				sum_duration+=send_queue.duration
+				sum_total_count+=send_queue.total_count
+				sum_total_queue_length += send_queue.total_queue_length
+				sum_sample_count += send_queue.sample_count
+
+			avg_rate = float(sum_total_count)/float(sum_duration)
+			list_avg_rates[i][key_timestamp] = avg_rate
+
+			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
+			list_avg_queue_length[i][key_timestamp] = avg_queue_length		
+
+		sum_duration = 0
+		sum_total_count = 0
+		avg_rate = 0.0
+
+		sum_total_queue_length = 0
+		sum_sample_count = 0
+		avg_queue_length = 0
+
+	# print dict_sentence_spout
+	# print spout_avg_rates
+	# print spout_avg_queue_length
+	for i in range(len(list_executors)):
+		list_executors[i] = OrderedDict(sorted(list_executors[i].items(), key=lambda ts: ts[0]))
+		list_avg_rates[i] = OrderedDict(sorted(list_avg_rates[i].items(), key=lambda ts: ts[0]))
+		list_avg_queue_length[i] = OrderedDict(sorted(list_avg_queue_length[i].items(), key=lambda ts: ts[0]))
+		
+	# dict_split_1 = OrderedDict(sorted(dict_split_1.items(), key=lambda tc: tc[0]))
+	# for key in dict_split_1:
+	# 	print key, dict_split_1[key][0].total_count
+
+	sentence_spout_data = [spout_avg_rates, spout_avg_queue_length]
+	split_1_data = [split_1_avg_rates, split_1_avg_queue_length]
+	split_2_data = [split_2_avg_rates, split_2_avg_queue_length]
+	split_3_data = [split_3_avg_rates, split_3_avg_queue_length]
+	split_4_data = [split_4_avg_rates, split_4_avg_queue_length]
+	counter_1_data = [counter_1_avg_rates, counter_1_avg_queue_length]
+	counter_2_data = [counter_2_avg_rates, counter_2_avg_queue_length]
+	return render_template('taskcomponent.html', sentence_spout_data = sentence_spout_data, split_1_data = split_1_data, split_2_data = split_2_data, split_3_data = split_3_data, split_4_data = split_4_data, counter_1_data = counter_1_data, counter_2_data = counter_2_data)
+
 if __name__ == "__main__":
 	
 	app.run(debug = True)

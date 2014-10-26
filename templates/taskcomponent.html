@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+{% block title %}
+	Task Component Aggregation 
+{% endblock %}
+{% block body %}
+	<hr />
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-bordered">
+				<caption> Sentence Spout [13] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for spout in sentence_spout_data[0] %}
+				<tr>
+						<td> {{ spout }} </td>
+						<td> {{ sentence_spout_data[0][spout] }} </td>
+						<td> {{ sentence_spout_data[1][spout] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Split 1 [14-16] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in split_1_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ split_1_data[0][bolt] }} </td>
+						<td> {{ split_1_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Split 2 [17-19] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in split_2_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ split_2_data[0][bolt] }} </td>
+						<td> {{ split_2_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Split 3 [20-21] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in split_3_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ split_3_data[0][bolt] }} </td>
+						<td> {{ split_3_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Split 4 [22-23] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in split_4_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ split_4_data[0][bolt] }} </td>
+						<td> {{ split_4_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Counter 1 [3-7] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in counter_1_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ counter_1_data[0][bolt] }} </td>
+						<td> {{ counter_1_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Counter 2 [8-12] Executor Aggregation </caption>
+				<thead>
+					<th> Time Stamp </th>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				{% for bolt in counter_2_data[0] %}
+				<tr>
+						<td> {{ bolt }} </td>
+						<td> {{ counter_2_data[0][bolt] }} </td>
+						<td> {{ counter_2_data[1][bolt] }} </td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
