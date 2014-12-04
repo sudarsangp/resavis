@@ -42,7 +42,7 @@ const.DEFAULT_FILE_MODE = 'w'
 const.HOST = "localhost"
 const.START_INDEX_FOR_REDIS = 0
 const.END_INDEX_FOR_REDIS = -1
-const.REDIS_QUEUE_NAME = "26-oct-1-1414296590-metrics"
+const.REDIS_QUEUE_NAME = "4-dec-1-1417693392-metrics"
 #old queue id 1410146732
 # 2fwc-1-1411573576-metrics
 

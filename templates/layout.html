@@ -8,11 +8,18 @@
 	</head>
 	<body>
 		<!-- <meta http-equiv="refresh" content="10" /> -->
-		<div class="container">
+		<div class="container" onclick="window.scrollTo(0,document.body.scrollHeight);">
 			
 			{% block body %}
 
 			{% endblock %}
 		</div>
+		{% block scripts %}
+		<script type="text/javascript">
+		window.document.onload = function() {
+			window.scrollTo(0,document.body.scrollHeight);
+		}
+		</script>
+		{% endblock %}
 	</body>
 </html>
