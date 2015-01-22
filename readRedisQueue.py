@@ -252,7 +252,8 @@ def store_redis_data_in_objects(result_from_server):
 	data_size = len(result_from_server)
 	logging.debug('Time to process data of size %s is %s' %(str(data_size), str(time_diff)))
 
-	print len(tuple_objects)
+	print len(tuple_objects), tuple_objects[0].keys()
+	tuple_objects.sort(key=lambda x: x['ComponentBasic'].time_stamp)
 	""" represents the values stored in member variables"""
 	# print component_basic.__dict__
 	""" represents the values stored in class variables"""
@@ -331,8 +332,8 @@ def queue_metrics():
 
 	return render_template("queuemetrics.html", data = metrics_list)
 
-@app.route('/compoenetlevel')
-def compoenent_level():
+@app.route('/componentlevel')
+def component_level():
 	result, data = initial_setup()
 	if result is None:
 		return render_template(const.HTML_ERROR)
@@ -843,11 +844,13 @@ def task_component():
 				sum_total_queue_length += send_queue.total_queue_length
 				sum_sample_count += send_queue.sample_count
 
-			avg_rate = 1000.0*float(sum_total_count)/float(sum_duration)
-			list_avg_rates[i][key_timestamp] = avg_rate
+			if sum_duration > 0:
+				avg_rate = 1000.0*float(sum_total_count)/float(sum_duration)
+				list_avg_rates[i][key_timestamp] = avg_rate
 
-			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
-			list_avg_queue_length[i][key_timestamp] = avg_queue_length		
+			if sum_sample_count > 0:
+				avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
+				list_avg_queue_length[i][key_timestamp] = avg_queue_length		
 
 		sum_duration = 0
 		sum_total_count = 0
@@ -861,10 +864,11 @@ def task_component():
 	# print spout_avg_rates
 	# print spout_avg_queue_length
 	for i in range(len(list_executors)):
-		list_executors[i] = OrderedDict(sorted(list_executors[i].items(), key=lambda ts: ts[0]))
-		list_avg_rates[i] = OrderedDict(sorted(list_avg_rates[i].items(), key=lambda ts: ts[0]))
-		list_avg_queue_length[i] = OrderedDict(sorted(list_avg_queue_length[i].items(), key=lambda ts: ts[0]))
-		
+		list_executors[i] = OrderedDict(sorted(list_executors[i].items()))
+		list_avg_rates[i] = OrderedDict(sorted(list_avg_rates[i].items()))
+		list_avg_queue_length[i] = OrderedDict(sorted(list_avg_queue_length[i].items()))
+	
+	print list_executors[0].keys()
 	# dict_split_1 = OrderedDict(sorted(dict_split_1.items(), key=lambda tc: tc[0]))
 	# for key in dict_split_1:
 	# 	print key, dict_split_1[key][0].total_count

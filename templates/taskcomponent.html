@@ -15,11 +15,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for spout in sentence_spout_data[0] %}
+				{% for spout in sentence_spout_data[0]|dictsort %}
 				<tr>
-						<td> {{ spout }} </td>
-						<td> {{ sentence_spout_data[0][spout] }} </td>
-						<td> {{ sentence_spout_data[1][spout] }} </td>
+						<td> {{ spout[0] }} </td>
+						<td> {{ sentence_spout_data[0][spout[0]] }} </td>
+						<td> {{ sentence_spout_data[1][spout[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -37,11 +37,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in split_1_data[0] %}
+				{% for bolt in split_1_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ split_1_data[0][bolt] }} </td>
-						<td> {{ split_1_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ split_1_data[0][bolt[0]] }} </td>
+						<td> {{ split_1_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -56,11 +56,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in split_2_data[0] %}
+				{% for bolt in split_2_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ split_2_data[0][bolt] }} </td>
-						<td> {{ split_2_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ split_2_data[0][bolt[0]] }} </td>
+						<td> {{ split_2_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -78,11 +78,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in split_3_data[0] %}
+				{% for bolt in split_3_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ split_3_data[0][bolt] }} </td>
-						<td> {{ split_3_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ split_3_data[0][bolt[0]] }} </td>
+						<td> {{ split_3_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -97,11 +97,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in split_4_data[0] %}
+				{% for bolt in split_4_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ split_4_data[0][bolt] }} </td>
-						<td> {{ split_4_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ split_4_data[0][bolt[0]] }} </td>
+						<td> {{ split_4_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -119,11 +119,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in counter_1_data[0] %}
+				{% for bolt in counter_1_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ counter_1_data[0][bolt] }} </td>
-						<td> {{ counter_1_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ counter_1_data[0][bolt[0]] }} </td>
+						<td> {{ counter_1_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
@@ -138,11 +138,11 @@
 					<th> Average Queue Length </th>
 				</thead>
 				<tbody>
-				{% for bolt in counter_2_data[0] %}
+				{% for bolt in counter_2_data[0]|dictsort %}
 				<tr>
-						<td> {{ bolt }} </td>
-						<td> {{ counter_2_data[0][bolt] }} </td>
-						<td> {{ counter_2_data[1][bolt] }} </td>
+						<td> {{ bolt[0] }} </td>
+						<td> {{ counter_2_data[0][bolt[0]] }} </td>
+						<td> {{ counter_2_data[1][bolt[0]] }} </td>
 				</tr>
 				{% endfor %}
 				</tbody>
