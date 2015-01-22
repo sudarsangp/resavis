@@ -629,108 +629,60 @@ def component_level():
 		# timestamp_dict[timestamp_key] = timestamp_values
 	return render_template("componentaggregate.html", data = timestamp_dict, avg_execution_time = avg_execution_time, avg_sum_squares = avg_sum_squares, variance = variance)
 
-@app.route('/executorlevel')
+@app.route('/topologylevel')
 def executor_level():
 	result, data = initial_setup()
 	if result is None:
 		return render_template(const.HTML_ERROR)
 
-	split_executors = []
-	combine_tasks_split = []
 	sum_duration_split = 0
+	sum_total_count_split = 0
+	sum_total_queue_length_split = 0
+	sum_sample_count_split = 0
 
-	counter_executors = []
-	combine_tasks_counter = []
 	sum_duration_counter = 0
+	sum_total_count_counter = 0
+	sum_total_queue_length_counter = 0
+	sum_sample_count_counter = 0
+
+	spout_sum_value_total = 0
+	spout_count_total = 0
 
 	for i in range(len(data)):
 		if 'sentenceSpout' in str(data[i][const.KEY_COMPONENT_BASIC].component):
-			pass
+			if data[i][ComponentDetailInfo.EXECUTE] is None:
+				continue
+			spout_sum_value_total += float(data[i][ComponentDetailInfo.EXECUTE].sum_value)
+			spout_count_total += float(data[i][ComponentDetailInfo.EXECUTE].count)
 
 		elif 'split' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			if data[i][const.KEY_SEND_QUEUE_DETAIL] is None:
+				continue
 			sum_duration_split += data[i][const.KEY_SEND_QUEUE_DETAIL].duration
-			if sum_duration_split < 70000:
-				combine_tasks_split.append(data[i][const.KEY_SEND_QUEUE_DETAIL])
-			else:
-				split_executors.append(combine_tasks_split)
-				combine_tasks_split = []
-				sum_duration_split = 0
+			sum_total_count_split += data[i][const.KEY_SEND_QUEUE_DETAIL].total_count
+			sum_total_queue_length_split += data[i][const.KEY_SEND_QUEUE_DETAIL].total_queue_length
+			sum_sample_count_split += data[i][const.KEY_SEND_QUEUE_DETAIL].sample_count
 
 		elif 'counter' in str(data[i][const.KEY_COMPONENT_BASIC].component):
+			if data[i][const.KEY_SEND_QUEUE_DETAIL] is None:
+				continue
 			sum_duration_counter += data[i][const.KEY_SEND_QUEUE_DETAIL].duration
-			if sum_duration_counter < 70000:
-				combine_tasks_counter.append(data[i][const.KEY_SEND_QUEUE_DETAIL])
-			else:
-				counter_executors.append(combine_tasks_counter)
-				combine_tasks_counter = []
-				sum_duration_counter = 0
+			sum_total_count_counter += data[i][const.KEY_SEND_QUEUE_DETAIL].total_count
+			sum_total_queue_length_counter += data[i][const.KEY_SEND_QUEUE_DETAIL].total_queue_length
+			sum_sample_count_counter += data[i][const.KEY_SEND_QUEUE_DETAIL].sample_count
 
-	print len(split_executors), len(counter_executors)
+	avg_rate_split = 1000.0*float(sum_total_count_split)/float(sum_duration_split)
+	avg_queue_length_split = float(sum_total_queue_length_split)/float(sum_sample_count_split)
 
-	sum_duration = 0
-	sum_total_count = 0
-	avg_rate = 0.0
+	avg_rate_counter = 1000.0*float(sum_total_count_counter)/float(sum_duration_counter)
+	avg_queue_length_counter = float(sum_total_queue_length_counter)/float(sum_sample_count_counter)
 
-	sum_total_queue_length = 0
-	sum_sample_count = 0
-	avg_queue_length = 0
+	spout_complete_latency = float(spout_sum_value_total)/(1000.0 * float(spout_count_total))
 
-	split_avg_rates = []
-	split_avg_queue_length = []
+	split_details = [avg_rate_split, avg_queue_length_split]
+	counter_details = [avg_rate_counter, avg_queue_length_counter]
 
-	for i in range(len(split_executors)):
-		split_avg_rates.append(0)
-		split_avg_queue_length.append(0)
-	
-	for i in range(len(split_executors)):
-		
-		for j in range(len(split_executors[i])):
-			sum_duration+=split_executors[i][j].duration
-			sum_total_count+=split_executors[i][j].total_count
-			sum_total_queue_length += split_executors[i][j].total_queue_length
-			sum_sample_count += split_executors[i][j].sample_count
-		
-		if sum_duration > 0:
-			avg_rate = float(sum_total_count)/float(sum_duration)
-			split_avg_rates[i] = avg_rate
-		if sum_sample_count > 0:
-			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
-			split_avg_queue_length[i] = avg_queue_length
-
-	sum_duration = 0
-	sum_total_count = 0
-	avg_rate = 0.0
-
-	sum_total_queue_length = 0
-	sum_sample_count = 0
-	avg_queue_length = 0
-
-	counter_avg_rates = []
-	counter_avg_queue_length = []
-
-	for i in range(len(counter_executors)):
-		counter_avg_rates.append(0)
-		counter_avg_queue_length.append(0)
-	
-	for i in range(len(counter_executors)):
-		
-		for j in range(len(counter_executors[i])):
-			sum_duration+=counter_executors[i][j].duration
-			sum_total_count+=counter_executors[i][j].total_count
-			sum_total_queue_length += counter_executors[i][j].total_queue_length
-			sum_sample_count += counter_executors[i][j].sample_count
-		
-		if sum_duration > 0:
-			avg_rate = float(sum_total_count)/ float(sum_duration)
-			counter_avg_rates[i] = avg_rate
-		if sum_sample_count > 0:
-			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
-			counter_avg_queue_length[i] = avg_queue_length
-
-	split_details = [split_avg_rates, split_avg_queue_length]
-	counter_details = [counter_avg_rates, counter_avg_queue_length]
-
-	return render_template("executoraggregate.html", split_details = split_details, counter_details = counter_details)
+	return render_template("topologyaggregate.html", split_details = split_details, counter_details = counter_details, spout_complete_latency = spout_complete_latency)
 
 @app.route('/taskcomponent')
 def task_component():
@@ -994,11 +946,13 @@ def recvq_task_component():
 				sum_total_queue_length += send_queue.total_queue_length
 				sum_sample_count += send_queue.sample_count
 
-			avg_rate = 1000.0*float(sum_total_count)/float(sum_duration)
-			list_avg_rates[i][key_timestamp] = avg_rate
+			if sum_duration > 0:
+				avg_rate = 1000.0*float(sum_total_count)/float(sum_duration)
+				list_avg_rates[i][key_timestamp] = avg_rate
 
-			avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
-			list_avg_queue_length[i][key_timestamp] = avg_queue_length		
+			if sum_sample_count > 0:
+				avg_queue_length = float(sum_total_queue_length)/float(sum_sample_count)
+				list_avg_queue_length[i][key_timestamp] = avg_queue_length		
 
 		sum_duration = 0
 		sum_total_count = 0

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}
+	Executor Aggregation 
+{% endblock %}
+{% block body %}
+	
+	<hr />
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Split Topology Aggregation </caption>
+				<thead>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				<tr>
+					<td> {{ split_details[0] }} </td>
+					<td> {{ split_details[1] }} </td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<caption> Counter Topology Aggregation </caption>
+				<thead>
+					<th> Average Rate </th>
+					<th> Average Queue Length </th>
+				</thead>
+				<tbody>
+				<tr>
+						<td> {{ counter_details[0] }} </td>
+						<td> {{ counter_details[1] }} </td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+					<caption> Spout Topology Aggregation </caption>
+					<thead>
+						<th> Complete Latency </th>
+					</thead>
+					<tbody>
+					<tr>
+						<td> {{ spout_complete_latency }} </td>
+					</tr>
+					</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
